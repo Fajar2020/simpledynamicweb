@@ -1,0 +1,95 @@
+//start project
+composer create-project laravel/laravel example-app
+cd example-app
+
+//run the project in localhost:8000
+php artisan serve
+
+//create controller
+php artisan make:controller ContactController
+
+//for authentication
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+
+//migrate the database, after authentication install ada tambahan beberapa file
+php artisan migrate
+
+npm install && npm run dev
+
+add bootstrap css and js in app.blade
+
+<td>{{$user->created_at->diffForHumans()}}</td> for orm
+
+use Illuminate\Support\Facades\DB;
+for query builder
+
+//make model and migration
+php artisan make:model Category -m
+
+SoftDeletes
+->digunakan untuk delete tapi gak delete beneran jadi cuman id
+
+@csrf ->kalau pengen buat form yang bisa di post kan
+enctype="multipart/form-data" ->untuk upload foto
+
+//image intervention untuk resize dsb
+composer require intervention/image
+
+in app.config add
+'Image' => Intervention\Image\Facades\Image::class
+Intervention\Image\ImageServiceProvider::class,
+
+// now publish the image intervention
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+// for create link from storage
+used for upload image in profile
+php artisan storage:link
+
+change .env====> APP_URL=http://localhost to http://127.0.0.1:8000/
+
+change .env app_url ke kosong untuk mailtrap
+
+email verification
+change User.php with implements email verification
+add routes
+uncomment config/fortify
+
+php artisan r:l
+
+
+// delete cache 
+php artisan view:clear
+
+//add toastr
+https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css
+https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js
+
+in admin_master.blade.php
+
+
+// for deploy process
+
+export database
+custome ->
+IF NOT EXISTS (less efficient as indexes will be generated during table creation)
+harus di check
+
+php artisan config:cache
+php artisan cache:clear
+php artisan view:clear
+
+then make the folder into ZIP
+
+
+in cpanel kalau session error
+delete bootstrap/cache/config.php
+
+
+//delete /public in url
+create file .htaccess
+
+
+//download one page html
+https://htmlcodex.com/one-page-html-template/
